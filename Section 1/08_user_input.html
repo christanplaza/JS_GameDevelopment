@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input</title>
+</head>
+<body>
+    <canvas height="500" width="500" style="border: 2px solid #000;" id="ctx"/>
+
+    <script>
+        var ctx = document.getElementById('ctx').getContext('2d');
+
+        // There are 2 possible ways for the user to interact with the game. KB / Mouse.
+
+        //For mouse, we have onMouseDown and onMouseUp
+
+        // If a mou
+        document.getElementById('ctx').onmousedown = function() {
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(0, 0, 50, 50);
+        }
+
+        document.getElementById('ctx').onmouseup = function() {
+            ctx.fillStyle = 'red';
+            ctx.fillRect(0, 0, 50, 50);
+        }
+
+        document.onkeydown = function(event) {
+            // A has an ASCII value of 65
+            // Arrow Up has an ASCII value of 38
+            // Spacebar has an ASCII value of 32
+
+            console.log(event.keyCode);
+
+            if (event.keyCode ==  65) {
+                ctx.fillText("A has been pressed", 250, 250);
+            }
+        }
+    </script>
+</body>
+</html>

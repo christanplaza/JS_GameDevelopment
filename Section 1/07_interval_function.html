@@ -1,0 +1,19 @@
+<!-- Discussion on Frames and Framerate -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interval Function</title>
+</head>
+<body>
+    <script>
+
+        myFun = function() {
+            console.log('Sample');
+        };
+
+        // First Parameter is a function, Second parameter is time (in milliseconds)
+        // setInterval(myFun, 1000); // would be a 1 frame per second (fps) game
+        setInterval(myFun, 25); // 40fps
+    </script>
+</body>
+</html>

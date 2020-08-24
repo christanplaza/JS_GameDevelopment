@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+</head>
+<body>
+    <canvas height="500" width="500" id="ctx" style="border: 2px solid #000"/>
+    <script>
+        var ctx = document.getElementById('ctx').getContext('2d');
+        
+        var width = 500;
+        var height = 500;
+        var snakeList, foodList;
+
+        ctx.font = "20px Ubuntu";
+
+        var snakeBody = {
+            width: 20,
+            height: 20,
+            color: 'green'
+        };
+
+        var food = {
+            width: 20,
+            height: 20,
+            color: 'orange'
+        };
+
+        drawSnake = function(sb, i) {
+            ctx.save();
+
+            // To check if the snake body is the 'head', we give it a different color so that the user can tell.
+            if (i == 0)
+                ctx.fillStyle = 'black';
+            else 
+                ctx.fillStyle = snakeBody.color;
+
+            ctx.fillRect(sb.x, sb.y, snakeBody.width, snakeBody.height);
+
+            ctx.restore();
+        }
+
+        drawFood = function(f, i) {
+            ctx.save();
+
+            ctx.fillStyle = food.color;
+            ctx.fillRect(f.x, f.y, food.width, food.height);
+
+            ctx.restore();
+        }
+
+        // Entry point of the game
+        startGame = function() {
+
+            // Our snake has 3 body at the beginning
+            snakeList = [
+                {x: 220, y: 200},
+                {x: 200, y: 200},
+                {x: 180, y: 200}
+            ];
+
+            // We will not set the first position because we want it to be randomized. So we will set it later.
+            foodList = [];
+
+            // Will go through the snakeList array, and run the drawSnake function for each value.
+            snakeList.forEach(drawSnake);
+        }
+
+        startGame();
+    </script>
+</body>
+</html>
